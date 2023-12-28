@@ -30,7 +30,7 @@ const PostPreview = ({
                           src={post.thumbnail.asset.url}
                           placeholder="blur"
                           blurDataURL={post.thumbnail.asset.metadata.lqip}
-                          alt={post.thumbnail.alt}
+                          alt={post.thumbnail.alt || ""}
                           width={post.thumbnail.asset.metadata.dimensions.width}
                           height={post.thumbnail.asset.metadata.dimensions.height}
                         />

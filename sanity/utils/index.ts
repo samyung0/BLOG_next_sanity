@@ -30,7 +30,7 @@ export const posts = (await client.fetch(
     "author": author->slug.current,
     "relatedPosts": relatedPosts[]->slug.current,
     readingTime
-  }`
+  }`, {} ,{cache: "no-store"}
 )) as Post[];
 
 export const authors = (await client.fetch(
