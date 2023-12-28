@@ -8,20 +8,58 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "mosk";
+  src: url("/font/mosk/Mosk Normal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
-
+@font-face {
+  font-family: "mosk";
+  src: url("/font/mosk/Mosk Bold 700.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+/* @font-face {
+  font-family: "Cascadia Code";
+  src: url("/font/Cascadia Code/CascadiaCode.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} */
+@font-face {
+  font-family: "Fira Code";
+  src: url("/font/Fira Code/FiraCode-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  line-height: 1;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background: #f7f7f7;
+  --foreground-rgb: #f7f7f7;
+  --background-start-rgb: #f7f7f7;
+  --background-end-rgb: #3e3e3e;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
 }
