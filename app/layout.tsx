@@ -1,7 +1,8 @@
 import "./globals.css";
 
-export const fetchCache = "force-no-store";
+export const fetchCache = "default-no-store";
 export const dynamicParams = false;
+export const runtime = 'edge';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
