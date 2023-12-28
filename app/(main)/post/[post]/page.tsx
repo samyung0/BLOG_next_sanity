@@ -10,7 +10,7 @@ import ReactPlayer from "../../../../components/ReactPlayer";
 
 // import hljs from 'highlight.js'
 // import 'highlight.js/styles/github-dark.min.css';
-import style from 'react-syntax-highlighter/dist/esm/styles/prism/material-dark'
+import style from "react-syntax-highlighter/dist/esm/styles/prism/material-dark";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 
 type Props = {
@@ -63,27 +63,35 @@ const postPage = ({ params }: { params: { post: string } }) => {
                   );
                 },
                 code: (props) => {
-                    const codeBlock = <SyntaxHighlighter
+                  const codeBlock = (
+                    <SyntaxHighlighter
                       style={style}
                       language={props.value.language ?? "javascript"}
                       showLineNumbers
                       wrapLines
                       lineProps={(lineNumber: number) => {
-                        return (props.value.highlightedLines ?? []).includes(lineNumber)
-                          ? {
-                              markedlines: "1",
-                            }
-                          : {};
+                        return {
+                          markedlines: (props.value.highlightedLines ?? []).includes(lineNumber)
+                            ? "1"
+                            : "0",
+                        } as React.HTMLProps<HTMLElement>;
                       }}
                       className="shadow-lg"
                       filename={props.value.filename ? "1" : "0"}
                     >
                       {props.value.code}
                     </SyntaxHighlighter>
-                  return props.value.filename ? <>
-                    <div className="bg-code-editor text-background-gray inline-block px-5 py-1 text">{props.value.filename}</div>
-                    {codeBlock}
-                  </> :codeBlock
+                  );
+                  return props.value.filename ? (
+                    <>
+                      <div className="bg-code-editor text-background-gray inline-block px-5 py-1 text">
+                        {props.value.filename}
+                      </div>
+                      {codeBlock}
+                    </>
+                  ) : (
+                    codeBlock
+                  );
                 },
                 embed: (props: any) => {
                   const url = props.value.url;
