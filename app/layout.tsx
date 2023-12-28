@@ -1,5 +1,7 @@
-import { Metadata } from "next/types";
 import "./globals.css";
+
+export const fetchCache = "force-no-store";
+export const dynamicParams = false;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
