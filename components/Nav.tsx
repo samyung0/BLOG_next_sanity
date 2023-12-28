@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const Nav = () => {
@@ -6,7 +7,8 @@ const Nav = () => {
   return (
     <nav className="lg:fixed absolute m-[3.57vw] top-0 right-0">
       <div className="flex lg:flex-col md:flex-row lg:gap-0 gap-8 p-4 items-start">
-        <a
+        <Link
+          prefetch
           className={
             "text-black relative tracking-wider [transition:all_0.5s_linear] py-4" +
             (pathname === "/"
@@ -16,8 +18,9 @@ const Nav = () => {
           href="/"
         >
           Blog
-        </a>
-        <a
+        </Link>
+        <Link
+          prefetch
           className={
             "text-black relative tracking-wider [transition:all_0.5s_linear] py-4" +
             (pathname === "/about/"
@@ -27,10 +30,10 @@ const Nav = () => {
           href="/about"
         >
           About
-        </a>
+        </Link>
       </div>
     </nav>
   );
 };
 
-export default Nav
+export default Nav;

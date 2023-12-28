@@ -4,6 +4,7 @@ import { Post } from "@/types";
 import TimeSVG from "@/public/svg/time-outline.svg";
 import LabelsSVG from "@/public/svg/pricetags-outline.svg";
 import LabelSVG from "@/public/svg/pricetag-outline.svg";
+import Link from "next/link";
 const PostPreview = ({
   tag,
   relatedPosts,
@@ -23,7 +24,7 @@ const PostPreview = ({
                 <li key={post.slug}>
                   <div className="text-center">
                     {post.thumbnail.asset.url && (
-                      <a className="inline-block" href={`/post/${post.slug}`}>
+                      <Link prefetch className="inline-block" href={`/post/${post.slug}`}>
                         <Image
                           className="max-h-[230px] w-full object-contain object-bottom"
                           src={post.thumbnail.asset.url}
@@ -33,7 +34,7 @@ const PostPreview = ({
                           width={post.thumbnail.asset.metadata.dimensions.width}
                           height={post.thumbnail.asset.metadata.dimensions.height}
                         />
-                      </a>
+                      </Link>
                     )}
                   </div>
                   <div>
@@ -43,12 +44,13 @@ const PostPreview = ({
                       </span>
                     </div>
                     <h3>
-                      <a
+                      <Link
+                        prefetch
                         className="pt-2 block font-bold tracking-wider md:text-xl text-lg text-primary-gray"
                         href={`/post/${post.slug}`}
                       >
                         {post.name}
-                      </a>
+                      </Link>
                     </h3>
                     <div className="pt-1 flex items-center space-x-2">
                       <span>
@@ -81,12 +83,13 @@ const PostPreview = ({
                               const tag = tags.find((tag) => tag.slug === slug);
                               return (
                                 tag && (
-                                  <a
+                                  <Link
+                                    prefetch
                                     className="text-primary-gray tracking-wide md:text-sm text-xs md:font-bold"
                                     href={`/tag/${slug}`}
                                   >
                                     {tag.name}
-                                  </a>
+                                  </Link>
                                 )
                               );
                             });

@@ -1,6 +1,7 @@
 import { posts, tags } from "@/sanity/utils";
 import LabelSVG from "@/public/svg/pricetag-outline.svg";
 import Image from "next/image";
+import Link from "next/link";
 const Tags = () => {
   const tagsNotEmpty: Record<string, (typeof tags)["0"]> = {};
   for (const post of posts) {
@@ -29,7 +30,9 @@ const Tags = () => {
                 key={tag.slug}
                 className="text-primary-gray font-bold tracking-wide mr-4 leading-8 md:text-base text-sm"
               >
-                <a href={`/tag/${tag.slug}`}>{tag.name}</a>
+                <Link prefetch href={`/tag/${tag.slug}`}>
+                  {tag.name}
+                </Link>
               </li>
             ))}
           </ul>

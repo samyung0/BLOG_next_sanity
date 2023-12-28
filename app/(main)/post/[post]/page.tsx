@@ -5,6 +5,7 @@ import Tags from "@/components/Tags";
 import { posts } from "@/sanity/utils";
 import { PortableText } from "@portabletext/react";
 import { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import ReactPlayer from "../../../../components/ReactPlayer";
 
@@ -100,16 +101,22 @@ const postPage = ({ params }: { params: { post: string } }) => {
               },
               marks: {
                 internalLink: (props) => {
-                  return <a href={`/${props.value.type}/${props.value.slug}`}>{props.children}</a>;
+                  return (
+                    <Link prefetch href={`/${props.value.type}/${props.value.slug}`}>
+                      {props.children}
+                    </Link>
+                  );
                 },
                 link: (props) => {
                   const { blank, href } = props.value;
                   return blank ? (
-                    <a href={href} target="_blank" rel="noopener">
+                    <Link prefetch href={href} target="_blank" rel="noopener">
                       {props.children}
-                    </a>
+                    </Link>
                   ) : (
-                    <a href={href}>{props.children}</a>
+                    <Link prefetch href={href}>
+                      {props.children}
+                    </Link>
                   );
                 },
               },
