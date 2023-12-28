@@ -36,6 +36,7 @@ export async function generateStaticParams() {
 }
 
 const postPage = ({ params }: { params: { post: string } }) => {
+  console.log("RUNNIGN PAGE");
   const post = posts.find((post) => post.slug === params.post)!;
   return (
     <Layout>
