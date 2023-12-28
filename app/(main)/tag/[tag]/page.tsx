@@ -16,7 +16,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  console.log("TAGS:", tags);
   return tags.map((tag) => {
     return {
       params: {
@@ -33,7 +32,7 @@ const tagPage = ({ params: { tag } }: { params: { tag: string } }) => {
       <h1 className="font-mosk text-primary-gray font-bold  2xl:text-[4em] lg:text-[3em] text-[2em] pb-4 tracking-wider">
         Tag: {tagName.name}
       </h1>
-      {/* <PostPreview tag={tag} /> */}
+      <PostPreview tag={tag} />
       <Tags />
     </Layout>
   );
