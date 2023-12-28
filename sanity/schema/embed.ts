@@ -1,4 +1,4 @@
-import { Preview } from "@/components/Preview";
+import { Preview } from "../../components/Preview";
 import { SchemaTypeDefinition } from "sanity";
 
 const embed: SchemaTypeDefinition = {
